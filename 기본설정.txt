@@ -1,0 +1,5 @@
+스프링 프레임워크 기본설정
+1.window-prefrence의 한글 UTF-8설정
+2.스프링 설정파일 설정
+-pom.xml에서 jdbc,mybatis등의 파일 설정
+-web.xml에서 스프링 한글 설정

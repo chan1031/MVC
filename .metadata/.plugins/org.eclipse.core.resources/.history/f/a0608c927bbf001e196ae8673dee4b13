@@ -1,0 +1,78 @@
+package edu.jeiu.diary_pjt.service;
+
+import java.util.HashMap;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import edu.jeiu.diary_pjt.common.UserException;
+import edu.jeiu.diary_pjt.dao.DiaryDAO;
+import edu.jeiu.diary_pjt.dto.DiaryDTO;
+
+@Service("DiaryService")
+public class DiaryServicempl implements DiaryService {
+	
+	@Autowired
+	private SqlSession sqlSession;
+	
+	// 목록조회 메소드
+	@Override
+	public List<DiaryDTO> getDiaryList(HashMap<String, String> param) {
+
+		// searchAccountName + "%"
+		String searchTitleName = param.get("searchTitleName");
+		param.put("searchTitleName", searchTitleName + "%");
+			
+		DiaryDAO diaryDAO = sqlSession.getMapper(DiaryDAO.class);
+		List<DiaryDTO> diaryList = diaryDAO.getDiaryDBList(param);
+			
+		return diaryList;
+	}
+	//한건 조회 메서드
+	@Override
+	public DiaryDTO getDiary(HashMap<String, String> param) {
+		DiaryDAO diaryDAO = sqlSession.getMapper(DiaryDAO.class);
+		DiaryDTO diaryDTO = diaryDAO.getDiaryDB(param);
+		
+		return diaryDTO;
+	}
+	@Transactional
+	@Override
+	public void insertDiary(HashMap<String, String> param) throws UserException, Exception {
+		
+		DiaryDAO diaryDAO = sqlSession.getMapper(DiaryDAO.class);
+
+		int transferAmmount = Integer.parseInt(param.get("transferAmmount"));
+		
+		param.put("accountNumber", param.get("fromAccountNumber"));
+		diaryDTO diaryDTO = diaryDAO.getAccountDB(param);
+
+		int accountBalance = accountDTO.getAccountBalance();
+		
+		// 계좌잔고 보다 계좌이체금액이 크면 UserException 발생
+		if(transferAmmount > accountBalance) {
+			throw new UserException("계좌잔고 보다 계좌이체금액이 큽니다. : " + "계좌잔고(" + accountBalance + "), 계좌이체금액(" + transferAmmount + ")");
+		}
+		
+		// oldTransferAmmount, newTransferAmmount 변수에 저장 
+		param.put("oldTransferAmmount", "0");
+		param.put("newTransferAmmount", param.get("transferAmmount"));
+		
+		// AccountTransfer insert
+		accountTransferDAO.insertAccountTransferDB(param);
+		
+		// Account의 FromAccount 금액 수정
+		accountTransferDAO.updateFromAccountDB(param);
+		
+		// Account의 ToAccount 금액 수정
+		accountTransferDAO.updateToAccountDB(param);
+	}
+	
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,7 @@
+package edu.jeiu.diary_pjt.controller;
+
+import org.springframework.stereotype.Controller;
+
+public class DiaryController {
+	
+}

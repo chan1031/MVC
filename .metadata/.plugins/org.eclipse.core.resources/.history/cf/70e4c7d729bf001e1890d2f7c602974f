@@ -1,0 +1,26 @@
+package edu.jeiu.diary_pjt.service;
+
+import java.util.HashMap;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import edu.jeiu.diary_pjt.dto.DiaryDTO;
+
+@Service("DiaryService")
+public class DiaryServicempl implements DiaryService {
+
+	@Override
+	public List<DiaryDTO> getDiaryList(HashMap<String, String> param) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+	
+	
+	
+	
+}

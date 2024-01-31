@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.jeiu.diary_pjt.dao.DiaryDAO">
+
+	<select id="getDiaryDBList" parameterType="hashmap"
+		resultType="edu.jeiu.diary_pjt.dto.DiaryDTO">
+		SELECT id,title,writeDate FROM diary WHERE title LIKE
+		#{searchTitleName} order by id desc
+	</select>
+
+	<select id="getDiaryDB" parameterType="hashmap"
+		resultType="edu.jeiu.diary_pjt.dto.DiaryDTO">
+		SELECT *
+		FROM diary
+		WHERE id = #{id}
+	</select>
+
+	<insert id="insertDiaryDB" parameterType="hashmap">
+		INSERT INTO diary
+		(title,content,writeDate)
+		VALUES (#{title}, #{content}, #{writeDate})
+	</insert>
+
+	<delete id="deleteAccountTransferDB" parameterType="hashmap">
+		DELETE FROM diary
+		WHERE id = #{id}
+	</delete>
+</mapper>

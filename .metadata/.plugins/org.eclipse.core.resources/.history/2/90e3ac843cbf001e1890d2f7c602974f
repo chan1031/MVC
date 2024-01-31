@@ -1,0 +1,39 @@
+package edu.jeiu.diary_pjt.service;
+
+import java.util.HashMap;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import edu.jeiu.diary_pjt.dao.DiaryDAO;
+import edu.jeiu.diary_pjt.dto.DiaryDTO;
+
+@Service("DiaryService")
+public class DiaryServicempl implements DiaryService {
+	
+	@Autowired
+	private SqlSession sqlSession;
+	
+	// 목록조회 메소드
+	@Override
+	public List<DiaryDTO> getDiaryList(HashMap<String, String> param) {
+
+			// searchAccountName + "%"
+		System.out.println("입력한 sarchTitle Name: "+param.get("searchTitleName"));
+		String searchTitleName = param.get("searchTitleName");
+		param.put("searchTitleName", searchTitleName + "%");
+			
+		DiaryDAO diaryDAO = sqlSession.getMapper(DiaryDAO.class);
+		List<DiaryDTO> diaryList = diaryDAO.getDiaryDBList(param);
+			
+		return diaryList;
+	}
+	
+	
+	
+	
+	
+	
+}

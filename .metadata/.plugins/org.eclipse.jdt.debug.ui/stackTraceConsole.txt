@@ -1,0 +1,2 @@
+// 목록조회DB 메소드
+	public List<AccountTransferDTO> getAccountTransferDBList(HashMap<String, String> param);

@@ -1,0 +1,25 @@
+package edu.jeiu.diary_pjt.service;
+
+import java.util.HashMap;
+import java.util.List;
+
+import edu.jeiu.diary_pjt.common.UserException;
+import edu.jeiu.diary_pjt.dto.DiaryDTO;
+
+public interface DiaryService {
+
+	// 목록조회 메소드
+	public List<DiaryDTO> getDiaryList(HashMap<String, String> param);
+
+	// 조회 메소드
+	public DiaryDTO getDiary(HashMap<String, String> param);
+
+	// 입력 메소드
+	public void insertDiary(HashMap<String, String> param) throws UserException, Exception;
+
+	// 한건 삭제 메서드
+	public void deleteDiary(HashMap<String, String> param) throws UserException, Exception;
+
+	// 수정
+	public void updateDiary(HashMap<String, String> param) throws UserException, Exception;
+}

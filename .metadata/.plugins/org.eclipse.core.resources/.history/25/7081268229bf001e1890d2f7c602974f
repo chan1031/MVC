@@ -1,0 +1,12 @@
+package edu.jeiu.diary_pjt.service;
+
+import java.awt.List;
+import java.util.HashMap;
+
+import edu.jeiu.diary_pjt.dto.DiaryDTO;
+
+public interface DiaryService {
+	
+	// 목록조회 메소드
+		public List<DiaryDTO> getAccountTransferList(HashMap<String, String> param);
+}

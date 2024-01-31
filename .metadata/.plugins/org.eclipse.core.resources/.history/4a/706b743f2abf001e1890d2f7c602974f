@@ -1,0 +1,11 @@
+package edu.jeiu.diary_pjt.dao;
+
+import java.util.HashMap;
+import java.util.List;
+
+import edu.jeiu.diary_pjt.dto.DiaryDTO;
+
+public interface DiaryDAO {
+	// 목록조회DB 메소드
+	public List<DiaryDTO> getAccountTransferDBList(HashMap<String, String> param);
+}

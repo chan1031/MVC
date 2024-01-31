@@ -1,0 +1,5 @@
+package edu.jeiu.diary_pjt.dto;
+
+public class DiaryDTO {
+
+}

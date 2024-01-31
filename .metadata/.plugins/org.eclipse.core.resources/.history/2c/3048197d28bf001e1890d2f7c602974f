@@ -1,0 +1,33 @@
+package edu.jeiu.diary_pjt.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import edu.jeiu.diary_pjt.service.DiaryService;
+
+@Controller
+public class DiaryController {
+	
+	@Autowired
+	private DiaryService diaryService;
+
+	// 목록 조회화면 Open
+	@RequestMapping("/list_open")
+	public String list_open() {
+		
+		return "diary_list";
+	}
+	
+	// 목록 조회
+		@RequestMapping("/list")
+		@ResponseBody
+		public List<DiaryDTO> list(@RequestParam HashMap<String, String> param) {
+
+			List<DiaryDTO> diaryList = diaryService.getAccountTransferList(param);
+			
+			return diaryList;
+		}
+	
+	
+}

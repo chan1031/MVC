@@ -1,0 +1,16 @@
+package edu.jeiu.diary_pjt.service;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service("DiaryService")
+public class DiaryServicempl implements DiaryService {
+	@Autowired
+	private SqlSession sqlSession;
+	
+	
+	
+	
+	
+}

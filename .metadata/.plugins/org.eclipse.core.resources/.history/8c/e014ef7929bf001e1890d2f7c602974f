@@ -1,0 +1,5 @@
+package edu.jeiu.diary_pjt.service;
+
+public interface DiaryService {
+
+}
