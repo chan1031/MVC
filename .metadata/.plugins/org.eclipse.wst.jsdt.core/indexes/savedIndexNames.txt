@@ -1,7 +1,6 @@
-INDEX VERSION 1.4+C:\Users\user\Desktop\MyDirary_project\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-2357066285.index
-4006459885.index
-1991407275.index
-92892502.index
-559397454.index
-3261578248.index
+INDEX VERSION 1.4+C:\MyDiary_project\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+1901576570.index
+1331906070.index
+3846359134.index
+4202410059.index
+3059684593.index

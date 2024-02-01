@@ -3,3 +3,6 @@
 2.스프링 설정파일 설정
 -pom.xml에서 jdbc,mybatis등의 파일 설정
 -web.xml에서 스프링 한글 설정
+
+local git token
+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

@@ -1,3 +1,5 @@
 INDEX VERSION 1.131
+C:\MyDiary_project\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4202410059.index
+\Diary_dev\src\main\java
 C:\Users\user\Desktop\MyDirary_project\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4202410059.index
 \Diary_dev\src\main\java

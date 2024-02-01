@@ -1,0 +1,21 @@
+package edu.jeiu.diary_pjt.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class MemberController {
+	
+	//회원가입페이지 오픈
+	@RequestMapping("/member/save_open")
+	public String save_open() {
+
+		return "save";
+	}
+	//회원가입 처리
+	@RequestMapping("/member/save")
+	public String save() {
+
+		return "save";
+	}
+}
