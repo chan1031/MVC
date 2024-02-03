@@ -31,7 +31,7 @@ public class DiaryController {
 	// 목록 조회
 	@RequestMapping("/list")
 	@ResponseBody
-	// 여기서 가져온 paraam은 ajax로 부터 가져온 데이터를 의미한다. 즉, ajax통신에서 이 list함수를 자동적으로 실행하게 된다.
+	// 여기서 가져온 param은 ajax로 부터 가져온 데이터를 의미한다. 즉, ajax통신에서 이 list함수를 자동적으로 실행하게 된다.
 	public List<DiaryDTO> list(@RequestParam HashMap<String, String> param) {
 		List<DiaryDTO> diaryList = diaryService.getDiaryList(param);
 
@@ -51,7 +51,6 @@ public class DiaryController {
 	@RequestMapping("/select")
 	@ResponseBody
 	public DiaryDTO select(@RequestParam HashMap<String, String> param) {
-		System.out.println("What is :" + param.get("id"));
 		DiaryDTO diaryDTO = diaryService.getDiary(param);
 
 		return diaryDTO;

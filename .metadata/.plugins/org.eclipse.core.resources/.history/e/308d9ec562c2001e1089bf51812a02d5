@@ -1,0 +1,33 @@
+
+$(document).ready(function () {
+
+    
+	$('#submit2').on('click', function () {
+		var memberId = $("#memberId").val();
+	    var memberPw = $("#memberPw").val();
+
+	    var loginRequest = {
+	    		memberId: memberId,
+	    		memberPw: memberPw
+	    };
+		// jQuerry와 AJAX, 요청은 POST 방식이고 응답은 JSON
+		alert('code open');
+        $.ajax({
+            url: 'login',
+            type: 'post',
+            data: JSON.stringify(loginRequest),
+            datatype: "json",
+            success: function (data) {
+            	alert('success');
+            },
+        	error: function(error) {
+                alert("Login failed");
+            }
+        });
+
+		
+	}); 
+	
+
+
+}); 

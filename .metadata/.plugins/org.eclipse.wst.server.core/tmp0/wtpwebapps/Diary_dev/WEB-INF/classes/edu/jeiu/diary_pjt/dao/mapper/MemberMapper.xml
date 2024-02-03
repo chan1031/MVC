@@ -10,6 +10,12 @@
 		(memberId,memberPw,memberName)
 		VALUES (#{memberId}, #{memberPw}, #{memberName})
 	</insert>
-
+	
+	<select id="getMemberDB" parameterType="string"
+		resultType="edu.jeiu.diary_pjt.dto.MemberDTO">
+		SELECT *
+		FROM memberTable
+		WHERE memberId = #{memberId}
+	</select>
 	
 </mapper>

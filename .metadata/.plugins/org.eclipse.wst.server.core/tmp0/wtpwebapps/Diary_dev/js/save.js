@@ -14,7 +14,6 @@ $(document).ready(function () {
             dataType: 'JSON',
             success: function (data) {
             	var atResponse = data;
-
             	// 객체로 받음
                 $.each(atResponse, function (key, value) {
                 	
@@ -28,7 +27,7 @@ $(document).ready(function () {
                	});
                 
             	// URL을 "list_open"로 Setting, submit
-              	$('#form1').attr('action', "list_open");
+              	$('#form1').attr('action', "login");
             	$('#form1').submit();
             }
         });

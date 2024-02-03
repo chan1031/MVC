@@ -7,8 +7,7 @@
 	<title>Home</title>
 </head>
 <body>
-
+<a href ="login_open">로그인</a>
 <a href ="memberSave_open">회원가입</a>
-
 </body>
 </html>

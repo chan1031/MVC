@@ -1,0 +1,31 @@
+
+$(document).ready(function () {
+
+    
+	$('#submit2').on('click', function () {
+	
+		// jQuerry와 AJAX, 요청은 POST 방식이고 응답은 JSON
+		alert('code open');
+        $.ajax({
+            url: '/login',
+            type: 'post',
+            data: {
+//          	action: $('#action').val(),
+        	userId: $('#userId').val(),
+        	userName: $('#userName').val(),
+        },
+            datatype: "json",
+            success: function (data) {
+            	alert('success');
+            },
+        	error: function(error) {
+                alert("Login failed");
+            }
+        });
+
+		
+	}); 
+	
+
+
+}); 

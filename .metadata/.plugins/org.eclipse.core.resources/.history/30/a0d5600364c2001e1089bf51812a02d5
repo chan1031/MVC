@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="edu.jeiu.diary_pjt.dao.MemberDAO">
+
+	<insert id="saveMemberDB" parameterType="hashmap">
+		INSERT INTO memberTable
+		(memberId,memberPw,memberName)
+		VALUES (#{memberId}, #{memberPw}, #{memberName})
+	</insert>
+	
+	<select id="getMemberDB" parameterType="hashmap"
+		resultType="edu.jeiu.diary_pjt.dto.MemberDTO">
+		SELECT *
+		FROM memberTable
+		WHERE memberId = #{memberId}
+	</select>
+	
+</mapper>
