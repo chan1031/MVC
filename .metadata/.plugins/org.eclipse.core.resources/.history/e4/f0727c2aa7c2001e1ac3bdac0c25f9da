@@ -61,15 +61,13 @@ public class MemberController {
 	// 로그인 처리
 	@RequestMapping("/do_login")
 	@ResponseBody
-	public Map<String, String> login(@RequestParam HashMap<String, String> param, HttpSession session)
-			throws JsonProcessingException {
+	public Map<String, String> login(@RequestParam HashMap<String, String> param,HttpSession session) throws JsonProcessingException {
 		String memberId = param.get("memberId");
 		String memberPw = param.get("memberPw");
 		Map<String, String> response = new HashMap();
 
 		if (memberService.login(memberId, memberPw)) {
 			System.out.println("login success");
-			session.setAttribute("login_Id", memberId);
 			response.put("status", "success");
 			response.put("message", "Login successful");
 		} else {
@@ -79,12 +77,5 @@ public class MemberController {
 		}
 		return response;
 
-	}
-
-	// 로그아웃 처리
-	@RequestMapping("/logout")
-	public String logout(HttpSession session) {
-		session.removeAttribute("login_Id");
-		return "redirect:/login_open";
 	}
 }

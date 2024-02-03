@@ -85,6 +85,6 @@ public class MemberController {
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
 		session.removeAttribute("login_Id");
-		return "redirect:/login_open";
+		return "redirect:/login.jsp";
 	}
 }

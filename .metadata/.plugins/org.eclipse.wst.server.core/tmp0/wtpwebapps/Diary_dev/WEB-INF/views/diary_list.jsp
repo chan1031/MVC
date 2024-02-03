@@ -11,7 +11,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 
@@ -34,8 +34,10 @@
 <body>
 	<div align=center>
 	<H2>일기장</H2>
+	현재 로그인:<p>	 ${sessionScope.login_Id}</p>
+	<a href ="logout">로그아웃</a>
 	<HR>
-
+	
 	<!-- 계좌이체 목록 조회폼 -->
 	<form name="form1" id="form1" method="post" action="">
 		<input type="hidden" id = "id" name="id" value="">

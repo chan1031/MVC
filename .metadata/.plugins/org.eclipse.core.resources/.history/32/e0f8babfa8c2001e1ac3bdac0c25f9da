@@ -84,7 +84,7 @@ public class MemberController {
 	// 로그아웃 처리
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
-		session.removeAttribute("login_Id");
-		return "redirect:/login_open";
+		session.removeAttribute("memberId");
+		return "redirect:/login";
 	}
 }
